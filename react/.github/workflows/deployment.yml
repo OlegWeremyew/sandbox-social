@@ -1,0 +1,49 @@
+name: Build and Deploy React App
+
+on:
+  push:
+    branches:
+      - production
+      - development
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🔄 Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: yarn  # Используем кеш Yarn для ускорения установки зависимостей
+
+      - name: 📦 Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: 🔍 Lint code
+        run: yarn lint
+
+      - name: 🧪 Run tests
+        run: yarn test --ci --coverage
+
+      - name: 🏗️ Build application
+        run: yarn build
+
+      - name: 🚀 Deploy to environment
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ "$BRANCH_NAME" == "production" ]]; then
+            echo "🚀 Deploying to Production..."
+            # Вставь команду деплоя для production (например, AWS S3, Firebase, VPS и т.д.)
+          elif [[ "$BRANCH_NAME" == "staging" ]]; then
+            echo "🚀 Deploying to Staging..."
+            # Вставь команду деплоя для staging
+          elif [[ "$BRANCH_NAME" == "development" ]]; then
+            echo "🚀 Deploying to Development..."
+            # Вставь команду деплоя для development
+          else
+            echo "⚠️ Branch not configured for deployment"

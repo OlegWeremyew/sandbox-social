@@ -2,9 +2,16 @@
   "name": "nest",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "type": "module",
+  "author": "Oleg Veremyev",
   "private": true,
   "license": "UNLICENSED",
+  "contributors": [
+    {
+      "name": "Oleg Veremyev",
+      "email": "olegweremey1994@mail.ru"
+    }
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -69,5 +76,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": ">=1.22"
   }
 }

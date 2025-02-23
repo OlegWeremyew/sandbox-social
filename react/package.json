@@ -3,27 +3,68 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Oleg Veremyev",
+  "license": "UNLICENSED",
+  "contributors": [
+    {
+      "name": "Oleg Veremyev",
+      "email": "olegweremey1994@mail.ru"
+    }
+  ],
   "scripts": {
-    "dev": "vite",
+    "start:dev": "vite --mode development",
+    "start:stage": "vite --mode development",
+    "start:prod": "vite --mode production",
+    "build:dev": "tsc -b && vite build --mode development",
+    "build:stage": "tsc -b && vite build --mode staging",
+    "build:prod": "tsc -b && vite build --mode production",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.5",
+    "@mui/material": "^6.4.5",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react-router-dom": "^5.3.3",
+    "i18next": "^24.2.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.6",
+    "react-hook-form": "^7.54.2",
+    "react-i18next": "^15.4.1",
+    "react-router-dom": "^7.2.0",
+    "react-toastify": "^11.0.3",
+    "recharts": "^2.15.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/i18next": "^13.0.0",
+    "@types/node": "^22.13.5",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@types/react-dropzone": "^5.1.0",
+    "@types/react-i18next": "^8.1.0",
+    "@types/recharts": "^1.8.29",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.13",
     "eslint": "^9.19.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
+    "postcss": "^8.4.21",
+    "prettier": "^3.5.2",
+    "sass-embedded": "^1.85.0",
+    "tailwindcss": "^3.2.7",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": ">=1.22"
   }
 }

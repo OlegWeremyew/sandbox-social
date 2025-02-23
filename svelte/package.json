@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Oleg Veremyev",
+  "license": "UNLICENSED",
+  "contributors": [
+    {
+      "name": "Oleg Veremyev",
+      "email": "olegweremey1994@mail.ru"
+    }
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,5 +24,9 @@
     "svelte-check": "^4.1.4",
     "typescript": "~5.7.2",
     "vite": "^6.1.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": ">=1.22"
   }
 }
