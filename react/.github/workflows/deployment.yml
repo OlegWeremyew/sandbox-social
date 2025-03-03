@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: yarn  # Используем кеш Yarn для ускорения установки зависимостей
+          cache: yarn # Используем кеш Yarn для ускорения установки зависимостей
 
       - name: 📦 Install dependencies
         run: yarn install --frozen-lockfile
