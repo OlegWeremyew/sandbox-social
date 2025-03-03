@@ -23,14 +23,18 @@ export default tseslint.config(
           map: [['@', './src']],
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
+        node: {
+          "extensions": [".js", ".jsx", ".ts", ".tsx", ""]
+        },
+        typescript: {
+          "alwaysTryTypes": true
+        }
       },
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'eol-last': ['error', 'always'], // 🔹 Обязательная пустая строка в конце файла
     },
   }
 );

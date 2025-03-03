@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Social-sandbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🛠 Troubleshooting & Performance Fixes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you encounter issues like slow performance, unexpected behavior, or Vite not responding correctly, try the following fixes:
 
-## Expanding the ESLint configuration
+### 🧹 Clean Dependencies & Cache
+Sometimes, stale dependencies or Vite's cache can cause problems. To remove and reinstall everything, run:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+rm -rf node_modules .vite
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+```sh
+pkill -f vite
+```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Project Scripts Guide
+
+This file provides an explanation of the scripts used in the `package.json` file.
+
+## Development & Build Scripts
+
+### Run a project in different modes
+
+```shell
+npm run start:dev    #  Runs the project in development mode using Vite.
+npm run start:stage  # Starts the project in staging mode (same as development mode for now).
+npm run start:prod   #  Starts the project in production mode.
+```
+
+### Build project
+
+```shell
+npm run build:dev    # Compiles TypeScript (`tsc -b`) and builds the project for development mode.
+npm run build:stage  # Compiles TypeScript and builds the project for staging mode.
+npm run build:prod   # Compiles TypeScript and builds the project for production mode.
+npm run preview      # Serves the production build locally using Vite.
+```
+
+## Linting & Formatting
+
+```shell
+npm run lint       # Runs ESLint to check for code issues.
+npm run lint:fix   # Runs ESLint and automatically fixes issues in `.ts`, `.tsx`, `.js`, and `.jsx` files.
+npm run prettier   # Run Prettier to format all files
+npm run depcheck   # Check for unused or missing dependencies
+```
+
+## Testing
+
+### Run all tests:
+```shell
+npm run test        # Run Vitest tests
+npm run test:all    # Run both Jest and Vitest tests
+```
+
+### Jest Tests:
+```shell
+npm run jest        # Run all Jest tests
+npm run jest:watch  # Run Jest in watch mode
+npm run jest:coverage # Run Jest with coverage report
+```
+
+### Vitest Tests:
+```shell
+npm run vitest        # Run all Vitest tests
+npm run vitest:watch  # Run Vitest in watch mode
+npm run vitest:coverage # Run Vitest with coverage report
+```
+
+## End-to-End Testing with Cypress
+```shell
+npm run cypress:open  # Open the Cypress test runner
+npm run cypress:run   # Run all Cypress tests in the terminal
 ```
