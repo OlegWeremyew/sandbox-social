@@ -1,19 +1,29 @@
 {
   "name": "vue",
   "private": true,
+  "version": "0.0.1",
   "type": "module",
   "author": "Oleg Veremyev",
   "license": "UNLICENSED",
   "contributors": [
     {
       "name": "Oleg Veremyev",
-      "email": "olegweremey1994@mail.ru"
+      "email": "olegweremey1994@mail.ru",
+      "url": "https://github.com/OlegWeremyew"
+    },
+    {
+      "name": "Artem Savchuk",
+      "email": "savchuk799@gmail.com",
+      "url": "https://github.com/RockStar666by"
     }
   ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf node_modules && yarn cache clean",
+    "reset": "rm -rf node_modules && rm yarn.lock && yarn cache clean",
+    "reset_and_install": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn"
   },
   "dependencies": {
     "vue": "^3.5.13"
@@ -28,5 +38,9 @@
   "engines": {
     "node": ">=20",
     "yarn": ">=1.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlegWeremyew/sandbox-social/tree/production/vue"
   }
 }
