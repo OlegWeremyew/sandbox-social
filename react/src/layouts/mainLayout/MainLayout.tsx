@@ -29,7 +29,7 @@ export const MainLayout: FC = () => {
   return (
     <>
       <header>header</header>
-      <main>
+      <main className="main">
         <h1>MainLayout</h1>
         <Outlet />
       </main>

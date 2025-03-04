@@ -7,45 +7,47 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(), // ✅ Подключаем React-плагин
-    tsconfigPaths(),
-    visualizer(),
+    tsconfigPaths(), // 📌 Поддержка путей из tsconfig.json
+    visualizer(), // 📊 Генерирует отчет о размерах бандлов
   ],
   server: {
-    port: 3333,
-    open: true,
-    strictPort: true,
+    port: 3333, // 📌 Порт для dev-сервера
+    open: true, // 🔄 Автоматически открывает браузер при запуске
+    strictPort: true, // 🚨 Если порт занят — не переключается на другой
     hmr: {
-      overlay: false, // Отключает overlay ошибок
+      overlay: false, // ❌ Отключает всплывающее окно ошибок на экране
     },
-    cors: true, // 🛠️ Разрешаем CORS, если работаешь с API
-    historyApiFallback: true, // ✅ Перенаправляет запросы в index.html
+    cors: true, // 🛠️ Разрешает CORS (полезно для работы с API)
+    historyApiFallback: true, // 🔄 Перенаправляет все запросы на index.html (SPA)
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // ✅ Подключаем алиасы
-      '@styles': path.resolve(__dirname, './src/styles'), // 🎨 Алиас для стилей
+      '@': path.resolve(__dirname, './src'), // 📌 Упрощает импорт файлов из src/
+      '@styles': path.resolve(__dirname, './src/styles'), // 🎨 Упрощает импорт стилей
     },
   },
   css: {
     modules: {
-      generateScopedName: mode === 'development' ? '[local]' : '[hash:base64:5]', // Без хэшей в dev-режиме
+      generateScopedName: mode === 'development' ? '[local]' : '[hash:base64:5]',
+      // 🎨 В dev-режиме классы читаемые, в prod — минифицированные
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/global.scss";`, // 🎨 Автозагрузка SCSS-переменных
+        additionalData: `@import "@/styles/global.scss";`,
+        // 🎨 Автоматически подключает глобальные SCSS-стили
       },
     },
   },
   build: {
-    target: 'esnext', // 🚀 Оптимизация для современных браузеров
-    sourcemap: true, // 🛠️ Включает source maps для отладки в продакшене
-    minify: 'esbuild', // ⚡ Используем esbuild для быстрой сборки
-    chunkSizeWarningLimit: 1000, // ⚠️ Избавляемся от ворнингов по размеру чанков
-    spaFallback: true, // ✅ Позволяет Vite работать как SPA
+    target: 'esnext', // 🚀 Оптимизация под современные браузеры
+    sourcemap: true, // 🛠️ Включает source maps для отладки
+    minify: 'esbuild', // ⚡ Быстрая минимизация с esbuild
+    chunkSizeWarningLimit: 1000, // ⚠️ Предупреждение при больших чанках (уменьшает шум)
+    spaFallback: true, // ✅ SPA-режим (все пути редиректятся на index.html)
   },
   optimizeDeps: {
     include: ['react', 'react-dom'], // 🚀 Предварительная оптимизация зависимостей
-    exclude: ['some-heavy-library'], // ❌ Исключаем тяжелые библиотеки из pre-bundling
+    exclude: ['some-heavy-library'], // ❌ Исключает тяжелые библиотеки из pre-bundling
   },
-  base: './',
+  base: './', // 📌 Позволяет запускать приложение локально без проблем с путями
 }));
