@@ -1,28 +1,31 @@
 import { App } from '@/App';
 import { ErrorLayout, AuthLayout, MainLayout, EmptyLayout } from '@/layouts';
-import SignIn from '@/pages/sign-in/SignIn';
-import SignUp from '@/pages/sign-up/SignUp';
-import PasswordRecover from '@/pages/password-recovery/PasswordRecover';
-import SmsConfirmation from '@/pages/sms-confirmation/SmsConfirmation';
-import ConfirmEmail from '@/pages/confirm-email/ConfirmEmail';
-import Home from '@/pages/home/Home';
-import Profile from '@/pages/profile/Profile';
-import Friends from '@/pages/friends/Friends';
-import Messages from '@/pages/messages/Messages';
-import Music from '@/pages/music/Music';
-import News from '@/pages/news/News';
-import Posts from '@/pages/posts/Posts';
-import Schedule from '@/pages/schedule/Schedule';
-import Settings from '@/pages/settings/Settings';
-import Shop from '@/pages/shop/Shop';
-import Weather from '@/pages/weather/Weather';
-import Video from '@/pages/video/Video';
-import Map from '@/pages/map/Map';
-import StockExchange from '@/pages/stock-exchange/StockExchange';
-import Survey from '@/pages/survey/Survey';
-import Users from '@/pages/users/Users';
-import User from '@/pages/user/User';
-
+import SignIn from '@/pages/login/sign-in/SignIn';
+import SignUp from '@/pages/login/sign-up/SignUp';
+import PasswordRecover from '@/pages/login/password-recovery/PasswordRecover';
+import SmsConfirmation from '@/pages/login/sms-confirmation/SmsConfirmation';
+import ConfirmEmail from '@/pages/login/confirm-email/ConfirmEmail';
+import Home from '@/pages/main/home/Home';
+import Friends from '@/pages/authUser/friends/Friends';
+import Messages from '@/pages/authUser/messages/Messages';
+import Music from '@/pages/main/music/Music';
+import News from '@/pages/main/news/News';
+import Posts from '@/pages/main/posts/Posts';
+import Schedule from '@/pages/authUser/schedule/Schedule';
+import Settings from '@/pages/authUser/settings/Settings';
+import Shop from '@/pages/main/shop/Shop';
+import Weather from '@/pages/main/weather/Weather';
+import Video from '@/pages/main/video/Video';
+import Map from '@/pages/main/map/Map';
+import StockExchange from '@/pages/main/stock-exchange/StockExchange';
+import Survey from '@/pages/empty/survey/Survey';
+import Users from '@/pages/main/users/Users';
+import User from '@/pages/authUser/user/User';
+import UserMusic from '@/pages/authUser/userMusic/UserMusic';
+import PrivacyPolicy from '@/pages/empty/privacy-policy/PrivacyPolicy';
+import TermsOfService from '@/pages/empty/terms-of-service/TermsOfService';
+import Chat from '@/pages/authUser/chat/Chat';
+import UserVideo from '@/pages/authUser/userVideo/UserVideo';
 export const routes = [
   {
     element: <App />,
@@ -70,18 +73,6 @@ export const routes = [
             element: <Home />,
           },
           {
-            path: 'profile',
-            element: <Profile />,
-          },
-          {
-            path: 'friends',
-            element: <Friends />,
-          },
-          {
-            path: 'messages',
-            element: <Messages />,
-          },
-          {
             path: 'music',
             element: <Music />,
           },
@@ -92,14 +83,6 @@ export const routes = [
           {
             path: 'posts',
             element: <Posts />,
-          },
-          {
-            path: 'schedule',
-            element: <Schedule />,
-          },
-          {
-            path: 'settings',
-            element: <Settings />,
           },
           {
             path: 'news',
@@ -126,18 +109,59 @@ export const routes = [
             element: <Users />,
           },
           {
-            path: 'users/:id',
-            element: <User />,
+            path: 'user/:id',
+            children: [
+              {
+                index: true,
+                element: <User />,
+              },
+              {
+                path: 'friends',
+                element: <Friends />,
+              },
+              {
+                path: 'messages',
+                element: <Messages />,
+              },
+              {
+                path: 'music',
+                element: <UserMusic />,
+              },
+              {
+                path: 'video',
+                element: <UserVideo />,
+              },
+              {
+                path: 'schedule',
+                element: <Schedule />,
+              },
+              {
+                path: 'chat',
+                element: <Chat />,
+              },
+              {
+                path: 'settings',
+                element: <Settings />,
+              },
+            ],
           },
         ],
       },
       {
-        path: '/empty',
+        path: 'empty',
         element: <EmptyLayout />,
         children: [
           {
             index: true,
             element: <Survey />,
+          },
+          {
+            path: 'pp',
+            element: <PrivacyPolicy />,
+          },
+          {
+            path: 'tos',
+            element: <TermsOfService />,
           },
         ],
       },

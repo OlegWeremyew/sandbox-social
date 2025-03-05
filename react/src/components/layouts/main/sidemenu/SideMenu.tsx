@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 export const SideMenu: FC = () => {
   return (
-    <div>
+    <aside>
       SideMenu
-    </div>
+    </aside>
   );
 };

@@ -1,5 +1,6 @@
 import { type FC, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { Footer, Header } from '@/components/layouts';
 import type { Nullable } from '@/types';
 
 export const MainLayout: FC = () => {
@@ -28,12 +29,12 @@ export const MainLayout: FC = () => {
 
   return (
     <>
-      <header>header</header>
+      <Header/>
       <main className="main">
         <h1>MainLayout</h1>
         <Outlet />
       </main>
-      <footer>footer</footer>
+      <Footer/>
     </>
   );
 };

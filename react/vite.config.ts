@@ -32,10 +32,10 @@ export default defineConfig(({ mode }) => ({
       // 🎨 В dev-режиме классы читаемые, в prod — минифицированные
     },
     preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/styles/global.scss";`,
-        // 🎨 Автоматически подключает глобальные SCSS-стили
-      },
+      // scss: {
+      //   additionalData: `@import "@/styles/index.scss";`,
+      //   // 🎨 Автоматически подключает глобальные SCSS-стили
+      // },
     },
   },
   build: {
@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ['react', 'react-dom'], // 🚀 Предварительная оптимизация зависимостей
-    exclude: ['some-heavy-library'], // ❌ Исключает тяжелые библиотеки из pre-bundling
+    // exclude: ['some-heavy-library'], // ❌ Исключает тяжелые библиотеки из pre-bundling
   },
   base: './', // 📌 Позволяет запускать приложение локально без проблем с путями
 }));
