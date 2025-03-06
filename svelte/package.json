@@ -1,21 +1,30 @@
 {
-  "name": "svelte",
+  "name": "svelte-social-sandbox",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "author": "Oleg Veremyev",
   "license": "UNLICENSED",
   "contributors": [
     {
       "name": "Oleg Veremyev",
-      "email": "olegweremey1994@mail.ru"
+      "email": "olegweremey1994@mail.ru",
+      "url": "https://github.com/OlegWeremyew"
+    },
+    {
+      "name": "Artem Savchuk",
+      "email": "savchuk799@gmail.com",
+      "url": "https://github.com/RockStar666by"
     }
   ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "clean": "rm -rf node_modules && yarn cache clean",
+    "reset": "rm -rf node_modules && rm yarn.lock && yarn cache clean",
+    "reset_and_install": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
@@ -28,5 +37,9 @@
   "engines": {
     "node": ">=20",
     "yarn": ">=1.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlegWeremyew/sandbox-social/tree/production/svelte"
   }
 }
