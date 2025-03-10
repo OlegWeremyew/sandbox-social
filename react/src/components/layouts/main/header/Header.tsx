@@ -1,10 +1,17 @@
 import { FC } from 'react';
-import styles from './Header.module.scss';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import styles from './Header.module.scss';
+import { useTheme } from '@/hooks';
+
+import darkIcon from '@/assets/images/header/sun.png';
+import lightIcon from '@/assets/images/header/moon.png';
+import { Theme } from '@/types';
 
 export const Header: FC = () => {
   const navigation = useNavigate();
   const { pathname } = useLocation();
+
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogoClick = (): void => {
     if (pathname === '/') {
@@ -26,6 +33,9 @@ export const Header: FC = () => {
         <div className={styles.userNav}>
           <NavLink className={styles.link} to="/user/testId/schedule">schedule</NavLink>
           <NavLink className={styles.link} to="/user/testId/settings">avatar</NavLink>
+          <button type="button" onClick={toggleTheme} className={styles.themeButton}>
+            <img src={theme === Theme.DARK ? darkIcon : lightIcon} alt="theme icon" className={styles.themeIcon} />
+          </button>
           <NavLink className={styles.link} to="/login">login</NavLink>
         </div>
       </div>
