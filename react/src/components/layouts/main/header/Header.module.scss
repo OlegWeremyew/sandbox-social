@@ -34,6 +34,7 @@
 .userNav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-right: 20px;
   gap: 10px
 }
@@ -50,4 +51,32 @@
 .active {
   background-color: var(--purple-color);
   font-weight: 500;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.themeButton {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.themeIcon {
+  cursor: pointer;
+  transition: opacity 0.1s linear;
+  -webkit-user-drag: none;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
