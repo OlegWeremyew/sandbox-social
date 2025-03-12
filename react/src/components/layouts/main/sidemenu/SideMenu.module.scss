@@ -1,0 +1,32 @@
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background:  var(--second-background-color);
+  overflow-x: hidden;
+}
+
+.sideMenuLink {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  padding: 0 10px 0 0;
+  font-weight: 500;
+
+  &.active {
+    background-color: var(--purple-color);
+    font-weight: 500;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.linkIcon {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}

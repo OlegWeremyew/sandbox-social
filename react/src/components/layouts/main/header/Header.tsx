@@ -44,6 +44,7 @@ export const Header: FC = () => {
         <NavLink className={styles.link} to="/news">news</NavLink>
         <NavLink className={styles.link} to="/posts">posts</NavLink>
         <NavLink className={styles.link} to="/users">users</NavLink>
+        <NavLink className={styles.link} to="/chat">chat</NavLink>
         <NavLink className={styles.link} to="/music">music</NavLink>
         <NavLink className={styles.link} to="/video">video</NavLink>
         <NavLink className={styles.link} to="/map">map</NavLink>

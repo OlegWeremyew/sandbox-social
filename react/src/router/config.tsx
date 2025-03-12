@@ -109,6 +109,10 @@ export const routes = [
             element: <Users />,
           },
           {
+            path: 'chat',
+            element: <Chat />,
+          },
+          {
             path: 'user/:id',
             children: [
               {
@@ -134,10 +138,6 @@ export const routes = [
               {
                 path: 'schedule',
                 element: <Schedule />,
-              },
-              {
-                path: 'chat',
-                element: <Chat />,
               },
               {
                 path: 'settings',

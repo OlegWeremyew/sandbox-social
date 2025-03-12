@@ -1,7 +1,8 @@
 import { type FC, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Footer, Header } from '@/components/layouts';
+import { Footer, Header, SideMenu } from '@/components/layouts';
 import type { Nullable } from '@/types';
+import style from './MainLayout.module.scss'
 
 export const MainLayout: FC = () => {
   const { hash, pathname } = useLocation();
@@ -30,8 +31,8 @@ export const MainLayout: FC = () => {
   return (
     <>
       <Header/>
-      <main className="main">
-        <h1>MainLayout</h1>
+      <main className={style.main}>
+        <SideMenu/>
         <Outlet />
       </main>
       <Footer/>
