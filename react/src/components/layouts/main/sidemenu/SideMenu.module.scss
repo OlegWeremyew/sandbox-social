@@ -4,6 +4,8 @@
   justify-content: flex-start;
   background:  var(--second-background-color);
   overflow-x: hidden;
+  transition: width 0.2s linear;
+  min-width: 50px;
 }
 
 .sideMenuLink {
@@ -18,15 +20,17 @@
   &.active {
     background-color: var(--purple-color);
     font-weight: 500;
+  }
 
-    &:hover {
-      color: inherit;
-    }
+  &:hover {
+    color: inherit;
+    background: var(--main-background-color);
   }
 }
 
 .linkIcon {
   width: 30px;
+  min-width: 30px;
   height: 30px;
   margin: 0 10px;
 }

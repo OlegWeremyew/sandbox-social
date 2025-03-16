@@ -149,7 +149,7 @@ a {
 
 body.light {
   --main-background-color: #ffffff;
-  --second-background-color: #ffffff;
+  --second-background-color: #e8ebef;
   --primary-text-color: #000000;
   --blue-text-color: #5221E6;
   --purple-color: #609BFF;
@@ -169,4 +169,49 @@ body.light {
     background-color: var(--second-background-color);
     color: var(--primary-text-color);
   }
+
+  .sideMenuLink {
+    &.active {
+      background-color: var(--purple-color);
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: var(--second-background-color);
+  overflow-x: hidden;
+}
+
+.sideMenuLink {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  padding: 0 10px 0 0;
+  font-weight: 500;
+
+  &.active {
+    background-color: var(--purple-color);
+    font-weight: 500;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.linkIcon {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  transition: color 0.3s ease-in-out;
 }

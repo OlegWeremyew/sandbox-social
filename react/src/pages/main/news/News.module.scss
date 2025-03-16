@@ -1,0 +1,141 @@
+.newsTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.newsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--light-background-color);
+  color: var(--primary-text-color);
+}
+
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px); /* 2 новости в ряд */
+  margin-bottom: 20px;
+  background-color: var(--second-background-color);
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.newsItem h3 {
+  font-size: var(--heading-3-fs);
+  font-weight: bold;
+  color: var(--primary-text-color);
+  margin: 15px;
+}
+
+.newsItem figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.newsItem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 2px solid var(--secondary-text-color);
+}
+
+.newsItem figcaption {
+  font-size: var(--body-1-fs);
+  color: var(--secondary-text-color);
+  padding: 10px 15px;
+  background-color: var(--third-background-color);
+  line-height: 1.6;
+}
+
+.newsItem time {
+  font-size: var(--body-2-fs);
+  color: var(--third-text-color);
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+/* Стили для скелетона */
+.skeletonWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.skeletonNewsItem {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 10px); /* Растягиваем на 50% от ширины родителя */
+  margin-bottom: 20px;
+  background: var(--second-background-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.skeletonImage {
+  width: 100%; /* Занимает всю ширину родителя */
+  height: 180px;
+  background: var(--third-background-color);
+  margin-bottom: 15px;
+  border-radius: 5px;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+.skeletonText {
+  width: 80%;
+  height: 20px;
+  background: var(--second-background-color);
+  margin-bottom: 15px;
+  border-radius: 4px;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+.skeletonDate {
+  width: 50%;
+  height: 15px;
+  background: var(--second-background-color);
+  border-radius: 4px;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+/* Анимация для скелетона */
+@keyframes skeleton-loading {
+  0% {
+    background: var(--main-background-color);
+  }
+  50% {
+    background: var(--second-background-color);
+  }
+  100% {
+    background: var(--main-background-color);
+  }
+}
+
+/* Мобильные стили */
+@media (max-width: 1024px) {
+  .newsItem {
+    width: calc(50% - 10px); /* 2 новости на среднем экране */
+  }
+}
+
+@media (max-width: 768px) {
+  .newsItem {
+    width: 100%; /* На мобильных устройствах одна новость на весь экран */
+  }
+}
+
+@media (max-width: 480px) {
+  .newsContainer {
+    padding: 10px; /* Уменьшаем отступы на мобильных устройствах */
+  }
+}
