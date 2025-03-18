@@ -5,7 +5,6 @@ import { Theme } from '@/types';
 import { useEffect } from 'react';
 
 export const App = () => {
-
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -22,6 +21,5 @@ export const App = () => {
       <Outlet />
       <ToastContainer closeButton={<button>test</button>} icon={false} position="top-right" />
     </>
-
   );
 };

@@ -1,11 +1,8 @@
-import { FC } from 'react';
+import { type FC } from 'react';
+import { MainContentWrapper } from '@/components';
 
 const Music: FC = () => {
-  return (
-    <div>
-      Music
-    </div>
-  );
+  return <MainContentWrapper title="Music">Music content</MainContentWrapper>;
 };
 
 export default Music;
