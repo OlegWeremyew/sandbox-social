@@ -6,6 +6,9 @@
   overflow-x: hidden;
   transition: width 0.2s linear;
   min-width: 50px;
+  box-shadow: 5px 0 20px 0 var(--shadow-color);
+  padding-top: 20px;
+  min-height: 100vh;
 }
 
 .sideMenuLink {

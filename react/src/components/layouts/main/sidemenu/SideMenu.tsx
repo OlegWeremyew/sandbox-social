@@ -25,15 +25,14 @@ export const SideMenu: FC = () => {
   const iconsColor = useMemo(() => (theme === Theme.DARK ? 'white' : 'black'), [theme]);
 
   const toggleSideMenu = (): void => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <aside
-      className={styles.sideMenu}
-      style={{ width: `${isOpen ? 50 : 150}px` }}
-    >
-      <button type="button" onClick={toggleSideMenu}>mode</button>
+    <aside className={styles.sideMenu} style={{ width: `${isOpen ? 50 : 165}px` }}>
+      <button type="button" onClick={toggleSideMenu}>
+        mode
+      </button>
       <nav>
         <NavLink className={styles.sideMenuLink} to={`${basePath}`} end>
           <FontAwesomeIcon className={styles.linkIcon} icon={faHouse} color={iconsColor} />

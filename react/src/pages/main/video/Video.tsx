@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { type FC } from 'react';
+import { MainContentWrapper } from '@/components';
 
 const Video: FC = () => {
   return (
-    <div>
-      Video
-    </div>
+    <MainContentWrapper title="Video">
+      <div>Video content</div>
+    </MainContentWrapper>
   );
 };
 

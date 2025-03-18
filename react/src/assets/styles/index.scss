@@ -17,7 +17,8 @@
   --purple-color: #5221E6;
   --peach-color: #FFF3E4;
   --violet-color: #FBE4FF;
-  --shadow-color: "rbga(255, 255, 255, 0.7)";
+  --shadow-color: rgba(255, 255, 255, 0.3);
+  --text-shadow-color: rgba(255, 255, 255, 0.6);
 
   --radius-s: 5px;
   --radius-m: 10px;
@@ -70,6 +71,7 @@ main {
 }
 
 h1 {
+  display: inline-block;
   font-size: var(--heading-1-fs);
   font-weight: bold;
   line-height: 94px;
@@ -150,9 +152,12 @@ a {
 body.light {
   --main-background-color: #ffffff;
   --second-background-color: #e8ebef;
+  --secondary-text-color: #181823;
   --primary-text-color: #000000;
   --blue-text-color: #5221E6;
   --purple-color: #609BFF;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --text-shadow-color: rgba(0, 0, 0, 0.6);
 
   color: var(--primary-text-color);
   background-color: var(--main-background-color);

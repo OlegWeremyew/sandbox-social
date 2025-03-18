@@ -1,0 +1,112 @@
+/* Users.module.scss */
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.userItem {
+  background-color: var(--second-background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+.userName {
+  font-size: var(--heading-3-fs);
+  font-weight: bold;
+  color: var(--blue-text-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.userImageWrapper {
+  text-align: center;
+}
+
+.userImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 250px;
+}
+
+.userInfo {
+  font-size: 14px;
+  color: var(--secondary-text-color);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.userAddress {
+  font-size: 14px;
+  color: var(--third-text-color);
+  text-align: center;
+  margin-top: 10px;
+}
+
+address {
+  font-style: normal;
+}
+
+
+/* Стили для скелетонов */
+.userItemSkeleton {
+  background: var(--third-background-color);
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+.skeletonImage {
+  background: var(--second-background-color);
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.skeletonName {
+  background: var(--second-background-color);
+  width: 60%;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.skeletonInfo {
+  background: var(--second-background-color);
+  width: 80%;
+  height: 15px;
+  border-radius: 4px;
+}
+
+.skeletonAddress {
+  background: var(--second-background-color);
+  width: 90%;
+  height: 15px;
+  border-radius: 4px;
+}
+
+/* Анимация для скелетона */
+@keyframes skeleton-loading {
+  0% {
+    background: var(--main-background-color);
+  }
+  50% {
+    background: var(--second-background-color);
+  }
+  100% {
+    background: var(--main-background-color);
+  }
+}

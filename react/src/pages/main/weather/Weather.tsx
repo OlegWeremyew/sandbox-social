@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 import { mockData } from '@/pages/main/weather/mockData.ts';
+import { MainContentWrapper } from '@/components';
 
 interface WeatherResponse {
   elevation: 0;
@@ -25,17 +26,16 @@ interface WeatherData {
   weather: string; // "partly_sunny"
   wind_chill: number;
   precipitation: {
-    total: number,
-    type: string // "none"
+    total: number;
+    type: string; // "none"
   };
   wind: {
-    angle: number
-    dir: string // "SW"
-    gusts: number
-    speed: number
+    angle: number;
+    dir: string; // "SW"
+    gusts: number;
+    speed: number;
   };
 }
-
 
 const Weather: FC = () => {
   //todo Free Weather Api - https://ai-weather-by-meteosource.p.rapidapi.com
@@ -68,11 +68,12 @@ const Weather: FC = () => {
   // }, []);
 
   return (
-    <div>
-      <h1>Weather</h1>
+    <MainContentWrapper title="Weather">
       {weather.map(({ summary, temperature, date, wind }: WeatherData) => (
         <div key={Math.random()}>
-          <h3>{summary} temperature - <span>{temperature}</span></h3>
+          <h3>
+            {summary} temperature - <span>{temperature}</span>
+          </h3>
           <time dateTime={date}>{date}</time>
           <div>
             <h4>wind</h4>
@@ -85,7 +86,7 @@ const Weather: FC = () => {
           </div>
         </div>
       ))}
-    </div>
+    </MainContentWrapper>
   );
 };
 

@@ -1,11 +1,8 @@
-import { FC } from 'react';
+import { type FC } from 'react';
+import { MainContentWrapper } from '@/components';
 
 const StockExchange: FC = () => {
-  return (
-    <div>
-      StockExchange
-    </div>
-  );
+  return <MainContentWrapper title="StockExchange">StockExchange content</MainContentWrapper>;
 };
 
 export default StockExchange;

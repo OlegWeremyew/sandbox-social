@@ -24,16 +24,12 @@ import User from '@/pages/authUser/user/User';
 import UserMusic from '@/pages/authUser/userMusic/UserMusic';
 import PrivacyPolicy from '@/pages/empty/privacy-policy/PrivacyPolicy';
 import TermsOfService from '@/pages/empty/terms-of-service/TermsOfService';
-import Chat from '@/pages/authUser/chat/Chat';
+import Chat from '@/pages/main/chat/Chat';
 import UserVideo from '@/pages/authUser/userVideo/UserVideo';
 export const routes = [
   {
     element: <App />,
     children: [
-      {
-        path: '*',
-        element: <ErrorLayout />,
-      },
       {
         path: '*',
         element: <ErrorLayout />,
