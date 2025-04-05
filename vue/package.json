@@ -26,9 +26,15 @@
     "reset_and_install": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "lottie-web": "^5.12.2",
+    "pinia": "^3.0.1",
+    "swiper": "^11.2.6",
+    "vue": "^3.5.13",
+    "vue-router": "4"
   },
   "devDependencies": {
+    "@types/swiper": "^6.0.0",
+    "@types/vue-router": "^2.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.7.2",

@@ -1,0 +1,31 @@
+services:
+  #ToDo add Dockerfile
+  react:
+    image: react_app
+    build:
+      context: ./react
+  #ToDo add Dockerfile
+  vue:
+    image: vue_app
+    build:
+      context: ./vue
+  #ToDo add Dockerfile
+  svelte:
+    image: svelte_app
+    build:
+      context: ./svelte
+  #ToDo complete Dockerfile + bd mongo + redis
+  express:
+    image: express_app
+    build:
+      context: ./express
+  #ToDo complete Dockerfile + bd postgress + redis
+  nest:
+    image: nest_app
+    build:
+      context: ./nest
+  #ToDo add Dockerfile
+  golang:
+    image: golang_app
+    build:
+      context: ./golang
