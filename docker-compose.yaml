@@ -1,31 +1,60 @@
+version: '3.8'
+
 services:
-  #ToDo add Dockerfile
   react:
     image: react_app
     build:
       context: ./react
-  #ToDo add Dockerfile
-  vue:
-    image: vue_app
-    build:
-      context: ./vue
-  #ToDo add Dockerfile
+    ports:
+      - "3333:3000"
+
   svelte:
     image: svelte_app
     build:
       context: ./svelte
-  #ToDo complete Dockerfile + bd mongo + redis
+    ports:
+      - "4444:5000"
+
+  vue:
+    image: vue_app
+    build:
+      context: ./vue
+    ports:
+      - "5555:8080"
+
   express:
     image: express_app
     build:
       context: ./express
-  #ToDo complete Dockerfile + bd postgress + redis
+    ports:
+      - "6666:3000"
+
   nest:
     image: nest_app
     build:
       context: ./nest
-  #ToDo add Dockerfile
+    ports:
+      - "7777:3000"
+
   golang:
     image: golang_app
     build:
       context: ./golang
+    ports:
+      - "8081:8081"
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:
+    driver: local

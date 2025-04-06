@@ -3,6 +3,18 @@
 
 ---
 
+## build react-app image
+```sh
+  docker build -t react_app .
+````
+
+## start react app docker container on internal `3333` port
+```sh
+  docker run -p 3333:3000 react_app
+````
+
+---
+
 ## 🛠 Troubleshooting & Performance Fixes
 
 If you encounter issues like slow performance, unexpected behavior, or Vite not responding correctly, try the following fixes:
