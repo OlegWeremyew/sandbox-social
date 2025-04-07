@@ -1,6 +1,6 @@
 import { type FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from './news.module.scss';
+import styles from './News.module.scss';
 import { MainContentWrapper } from '@/components/pages/mainContentWrapper';
 
 interface News {

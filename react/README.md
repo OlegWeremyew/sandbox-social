@@ -10,7 +10,7 @@
 
 ## start react app docker container on internal `3333` port
 ```sh
-  docker run -p 3333:3000 react_app
+  docker run --name `container_name` -p `3333:3000` <image ID/name>
 ````
 
 ---

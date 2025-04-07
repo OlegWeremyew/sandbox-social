@@ -1,5 +1,7 @@
 node_modules
 .git
-.env
-.env*
-Dockerfile
+.gitignore
+.dockerignore
+dist
+build
+*.log

@@ -6,19 +6,20 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => ({
   plugins: [
-    react(), // ✅ Подключаем React-плагин
+    react(),
     tsconfigPaths(), // 📌 Поддержка путей из tsconfig.json
     visualizer(), // 📊 Генерирует отчет о размерах бандлов
   ],
   server: {
-    port: 3333, // 📌 Порт для dev-сервера
-    open: true, // 🔄 Автоматически открывает браузер при запуске
-    strictPort: true, // 🚨 Если порт занят — не переключается на другой
+    host: '0.0.0.0',
+    port: 3000,
+    open: true,
+    strictPort: true,
     hmr: {
-      overlay: false, // ❌ Отключает всплывающее окно ошибок на экране
+      overlay: false,
     },
-    cors: true, // 🛠️ Разрешает CORS (полезно для работы с API)
-    historyApiFallback: true, // 🔄 Перенаправляет все запросы на index.html (SPA)
+    cors: true,
+    historyApiFallback: true,
   },
   resolve: {
     alias: {
