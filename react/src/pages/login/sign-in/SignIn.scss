@@ -1,0 +1,82 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.text-input {
+  display: block;
+  padding: 8px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 0;
+  background: #f25f76;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #d94d64;
+}
+
+.remember-me {
+  display: flex;
+  flex: 2 1 auto;
+
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.checkbox {
+  size: adjust 3px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  button {
+    padding: 0;
+  }
+}
+
+.social-icons button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google {
+  background: #db4437;
+  color: white;
+}
+.facebook {
+  background: #3b5998;
+  color: white;
+}
+.linkedin {
+  background: #0077b5;
+  color: white;
+}

@@ -1,5 +1,5 @@
-@import "fonts.scss";
-@import "reset.scss";
+@use 'fonts.scss';
+@use 'reset.scss';
 
 @tailwind base;
 @tailwind components;
@@ -8,16 +8,16 @@
 :root {
   --main-background-color: #000000;
   --second-background-color: #181823;
-  --primary-text-color: #FFFFFF;
-  --secondary-text-color: #8491A0;
-  --third-text-color: #5B6876;
-  --green-text-color: #3CC74E;
-  --red-text-color: #E95D90;
-  --blue-text-color: #609BFF;
-  --purple-color: #5221E6;
-  --peach-color: #FFF3E4;
-  --violet-color: #FBE4FF;
-  --shadow-color: "rbga(255, 255, 255, 0.7)";
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #8491a0;
+  --third-text-color: #5b6876;
+  --green-text-color: #3cc74e;
+  --red-text-color: #e95d90;
+  --blue-text-color: #609bff;
+  --purple-color: #5221e6;
+  --peach-color: #fff3e4;
+  --violet-color: #fbe4ff;
+  --shadow-color: 'rbga(255, 255, 255, 0.7)';
 
   --radius-s: 10px;
   --radius-m: 15px;
@@ -42,7 +42,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: "Sen", sans-serif;
+  font-family: 'Sen', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   color: var(--primary-text-color);

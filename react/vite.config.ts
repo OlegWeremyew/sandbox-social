@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   css: {
+    devSourcemap: true,
     modules: {
       generateScopedName: mode === 'development' ? '[local]' : '[hash:base64:5]',
       // 🎨 В dev-режиме классы читаемые, в prod — минифицированные
