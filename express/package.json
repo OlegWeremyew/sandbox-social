@@ -22,8 +22,8 @@
   "scripts": {
     "watcher": "tsc -w",
     "start": "node dist/index.js",
-    "start:dev": "NODE_ENV=development nodemon dist/index.js",
-    "start:prod": "NODE_ENV=production nodemon dist/index.js",
+    "start:dev": "NODE_ENV=development nodemon -L dist/index.js",
+    "start:prod": "NODE_ENV=production nodemon -L dist/index.js",
     "build:dev": "tsc -b && yarn build --mode development",
     "build:stage": "tsc -b && yarn build --mode staging",
     "build:prod": "tsc -b && yarn build --mode production",

@@ -1,19 +1,15 @@
-FROM node:22-alpine AS build
+FROM node:20-alpine AS build
+
+RUN npm install -g yarn@1.22
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY yarn.lock package.json ./
 
-RUN npm install
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-FROM node:22-alpine AS production
+EXPOSE 5555
 
-WORKDIR /app
-
-COPY --from=build /app /app
-
-EXPOSE 3000
-
-CMD ["npm", "run", "start:prod"]
+CMD ["sh", "-c", "VITE_DEV_SERVER_HOST=0.0.0.0 yarn run start:dev"]

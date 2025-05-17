@@ -1,7 +1,14 @@
+# dev and build
 node_modules
 .git
 .gitignore
 .dockerignore
 dist
 build
+.env
 *.log
+
+# dev tools
+.prettierrc
+.eslintrc.json
+.eslintignore

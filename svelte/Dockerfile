@@ -1,36 +1,15 @@
-# Используем официальный Node.js образ для сборки
-FROM node:22-alpine AS build
+FROM node:20-alpine AS build
 
-# Устанавливаем рабочую директорию в /app
+RUN corepack enable && corepack prepare yarn@1.22 --activate
+
 WORKDIR /app
 
-# Копируем только package.json и package-lock.json
-COPY package*.json ./
+COPY yarn.lock package.json ./
 
-# Устанавливаем все зависимости приложения
-RUN npm install
+RUN yarn install --frozen-lockfile
 
-# Копируем все исходные файлы приложения в контейнер
-COPY ./src ./src
-COPY ./public ./public
+COPY . .
 
-# Строим приложение (собираем статические файлы)
-RUN npm run build
+EXPOSE 4444
 
-# Используем тот же образ Node.js для продакшн-окружения
-FROM node:22-alpine AS production
-
-# Устанавливаем рабочую директорию в /app
-WORKDIR /app
-
-# Копируем только скомпилированные файлы (из build)
-COPY --from=build /app/build /app/build
-
-# Устанавливаем глобально инструмент serve для обслуживания статики
-RUN npm install -g serve
-
-# Открываем порт 5000 для доступа
-EXPOSE 5000
-
-# Запускаем сервер для раздачи скомпилированных файлов
-CMD ["serve", "-s", "build", "-l", "5000"]
+CMD ["sh", "-c", "VITE_DEV_SERVER_HOST=0.0.0.0 yarn run start:dev"]

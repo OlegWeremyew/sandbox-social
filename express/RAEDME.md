@@ -8,9 +8,9 @@
   docker build -t express_app .
 ````
 
-## start express app docker container on internal `6666` port
+## start express app docker container on internal `5555` port
 ```sh
-  docker run -p 6666:3000 express_app
+  docker run -p 5555:5555 express_app
 ````
 
 ---

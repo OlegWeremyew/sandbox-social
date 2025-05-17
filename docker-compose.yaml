@@ -7,32 +7,45 @@ services:
       context: ./react
     container_name: react_app_container
     ports:
-      - "3333:3000"
+      - "3333:3333"
     volumes:
       - ./react:/app
       - /app/node_modules
     stdin_open: true
     tty: true
-#  svelte:
-#    image: svelte_app
-#    build:
-#      context: ./svelte
-#    ports:
-#      - "4444:5000"
-#
-#  vue:
-#    image: vue_app
-#    build:
-#      context: ./vue
-#    ports:
-#      - "5555:8080"
-#
-#  express:
-#    image: express_app
-#    build:
-#      context: ./express
-#    ports:
-#      - "6666:3000"
+  svelte:
+    image: svelte_app
+    build:
+      context: ./svelte
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./svelte:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+  vue:
+    image: vue_app
+    build:
+      context: ./vue
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./vue:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+  express:
+    image: express_app
+    build:
+      context: ./vue
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./express:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
 #
 #  nest:
 #    image: nest_app
