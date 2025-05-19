@@ -1,8 +1,15 @@
 import { type FC } from 'react';
-import { MainContentWrapper } from '@/components';
+
+import 'swiper/css';
+import { MainContentWrapper, SimpleSwiper, SimpleDragAndDrop } from '@/components';
 
 const Posts: FC = () => {
-  return <MainContentWrapper title="Posts">Posts content</MainContentWrapper>;
+  return (
+    <MainContentWrapper title="Posts">
+      <SimpleSwiper />
+      <SimpleDragAndDrop />
+    </MainContentWrapper>
+  );
 };
 
 export default Posts;

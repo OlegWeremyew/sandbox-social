@@ -2,12 +2,13 @@
   width: 100%;
   background-color: var(--light-background-color);
   color: var(--primary-text-color);
+  padding: 0 20px;
 }
 
 .title {
   margin-top: 15px;
   width: 100%;
- text-align: center;
+  text-align: center;
   font-size: var(--heading-1-fs);
   vertical-align: middle;
   text-shadow: 5px 2px 5px var(--text-shadow-color);

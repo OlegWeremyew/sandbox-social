@@ -18,6 +18,7 @@ import Weather from '@/pages/main/weather/Weather';
 import Video from '@/pages/main/video/Video';
 import Map from '@/pages/main/map/Map';
 import StockExchange from '@/pages/main/stock-exchange/StockExchange';
+import ShopProduct from '@/pages/main/shop-product/ShopProduct';
 import Survey from '@/pages/empty/survey/Survey';
 import Users from '@/pages/main/users/Users';
 import User from '@/pages/authUser/user/User';
@@ -26,6 +27,7 @@ import PrivacyPolicy from '@/pages/empty/privacy-policy/PrivacyPolicy';
 import TermsOfService from '@/pages/empty/terms-of-service/TermsOfService';
 import Chat from '@/pages/main/chat/Chat';
 import UserVideo from '@/pages/authUser/userVideo/UserVideo';
+
 export const routes = [
   {
     element: <App />,
@@ -87,6 +89,10 @@ export const routes = [
           {
             path: 'shop',
             element: <Shop />,
+          },
+          {
+            path: 'shop/:id',
+            element: <ShopProduct />,
           },
           {
             path: 'weather',

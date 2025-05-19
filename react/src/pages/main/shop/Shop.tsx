@@ -1,7 +1,8 @@
+import { type FC, useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { type FC, useEffect, useState } from 'react';
 import { MainContentWrapper } from '@/components';
-import styles from './Shop.module.scss'; // Импортируем стили
+import styles from './Shop.module.scss';
 
 interface Product {
   id: number;
@@ -19,19 +20,36 @@ interface Product {
 const Shop: FC = () => {
   //todo Free Store Api - https://fakestoreapi.com/docs
 
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState<Product[]>([] as Product[]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const goToProduct = useCallback(
+    (id: number): void => {
+      navigate(`/shop/${id}`);
+    },
+    [navigate]
+  );
+
+  const controller = new AbortController();
+
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('https://fakestoreapi.com/products');
+      const { data } = await axios.get('https://fakestoreapi.com/products', {
+        signal: controller.signal,
+      });
       setProducts(data);
       setIsLoading(false);
     })();
+
+    () => {
+      controller.abort();
+    };
   }, []);
 
   return (
-    <MainContentWrapper title="Shop">
+    <MainContentWrapper title="ShopProduct">
       <div className={styles.productList}>
         {isLoading
           ? Array.from({ length: 8 }).map((_, index) => (
@@ -43,7 +61,7 @@ const Shop: FC = () => {
               </div>
             ))
           : products.map(({ id, title, description, image, category, price, rating }: Product) => (
-              <div key={id} className={styles.productItem}>
+              <div key={id} className={styles.productItem} onClick={() => goToProduct(id)}>
                 <h3 className={styles.productTitle}>
                   {title} <span className={styles.productPrice}>${price}</span>
                 </h3>

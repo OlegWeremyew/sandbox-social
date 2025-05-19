@@ -1,0 +1,1 @@
+export { SimpleSwiper } from './SimpleSwiper';

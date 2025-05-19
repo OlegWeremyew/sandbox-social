@@ -1,4 +1,7 @@
 .main {
   display: flex;
   flex-grow: 1;
+  overflow-x: hidden;
+  height: calc(100vh);
+  position: relative;
 }
