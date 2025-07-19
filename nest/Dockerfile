@@ -1,22 +1,16 @@
-FROM node:22-alpine AS build
+FROM node:20-alpine AS dev
+
+RUN corepack enable && corepack prepare yarn@1.22 --activate
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY yarn.lock package.json ./
 
-RUN npm install
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
 
-FROM node:22-alpine AS production
+EXPOSE 7777
 
-WORKDIR /app
-
-COPY --from=build /app/dist /app/dist
-COPY --from=build /app/node_modules /app/node_modules
-
-EXPOSE 3000
-
-CMD ["npm", "run", "start:prod"]
+CMD ["yarn", "start:dev"]

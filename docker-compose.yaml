@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   react:
@@ -11,6 +11,10 @@ services:
     volumes:
       - ./react:/app
       - /app/node_modules
+    depends_on:
+      - express
+      - nest
+      - golang
     stdin_open: true
     tty: true
   svelte:
@@ -22,6 +26,10 @@ services:
     volumes:
       - ./svelte:/app
       - /app/node_modules
+    depends_on:
+      - express
+      - nest
+      - golang
     stdin_open: true
     tty: true
   vue:
@@ -33,46 +41,95 @@ services:
     volumes:
       - ./vue:/app
       - /app/node_modules
+    depends_on:
+      - express
+      - nest
+      - golang
     stdin_open: true
     tty: true
   express:
     image: express_app
     build:
-      context: ./vue
+      context: ./express
     ports:
       - "5555:5555"
+#    depends_on:
+#      mongo_db:
+#        condition: service_healthy
+#      redis_db:
+#        condition: service_healthy
+#      postgres_db:
+#        condition: service_healthy
     volumes:
       - ./express:/app
       - /app/node_modules
     stdin_open: true
     tty: true
-#
-#  nest:
-#    image: nest_app
-#    build:
-#      context: ./nest
-#    ports:
-#      - "7777:3000"
-#
-#  golang:
-#    image: golang_app
-#    build:
-#      context: ./golang
-#    ports:
-#      - "8081:8081"
-#
-#  mongo:
+
+  nest:
+    image: nest_app
+    build:
+      context: ./nest
+    ports:
+      - "7777:7777"
+
+  golang:
+    image: golang_app
+    build:
+      context: ./golang
+    ports:
+      - "8081:8081"
+
+#  mongo_db:
 #    image: mongo:latest
-#    volumes:
-#      - mongo_data:/data/db
 #    ports:
 #      - "27017:27017"
+#    environment:
+#      MONGO_PASSWORD: ${MONGO_PASSWORD}
+#      MONGO_USER: ${MONGO_USER}
+#      MONGO_DB_NAME: ${MONGO_DB_NAME}
+#    healthcheck:
+#      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_PASSWORD} -d $${POSTGRES_DB_NAME}" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#    volumes:
+#      - mongo_data:/data/db
 #
+#  postgres_db:
+#    image: postgres:16
+#    ports:
+#      - "27017:27017"
+#    environment:
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+#      POSTGRES_USER: ${POSTGRES_USER}
+#      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
+#    healthcheck:
+#      test: [ "CMD-SHELL", "mongo_isready -U $${POSTGRES_PASSWORD} -d $${POSTGRES_DB_NAME}"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#    volumes:
+#      - postgres_data:/data/db
 #  redis:
 #    image: redis:latest
 #    ports:
 #      - "6379:6379"
-
+#    environment:
+#      REDIS_PASSWORD: ${REDIS_PASSWORD}
+#      REDIS_USER: ${REDIS_USER}
+#      REDIS_DB_NAME: ${REDIS_DB_NAME}
+#    healthcheck:
+#      test: [ "CMD-SHELL", "redis_isready -U $${POSTGRES_PASSWORD} -d $${POSTGRES_DB_NAME}" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#    volumes:
+#      - redis_data:/data/db
 #volumes:
 #  mongo_data:
+#    driver: local
+#  postgres_data:
+#    driver: local
+#  redis_data:
 #    driver: local

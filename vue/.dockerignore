@@ -7,6 +7,8 @@ dist
 build
 .env
 *.log
+.idea
+.vscode
 
 # dev tools
 .prettierrc

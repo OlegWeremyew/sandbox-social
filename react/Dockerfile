@@ -1,4 +1,5 @@
-FROM node:20-alpine AS build
+# 🏗 Stage 1: Development base image
+FROM node:20-alpine AS dev
 
 RUN corepack enable && corepack prepare yarn@1.22 --activate
 
@@ -12,4 +13,5 @@ COPY . .
 
 EXPOSE 3333
 
-CMD ["sh", "-c", "VITE_DEV_SERVER_HOST=0.0.0.0 yarn run start:dev"]
+# CMD ["sh", "-c", "VITE_DEV_SERVER_HOST=0.0.0.0 yarn run dev"]
+CMD ["sh", "-c", "yarn run dev"]

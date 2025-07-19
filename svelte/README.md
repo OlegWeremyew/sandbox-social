@@ -8,7 +8,7 @@
 
 ## start svelte app docker container on internal `4444` port
 ```sh
-  docker run -p 4444:5000 svelte_app
+  docker run -p 4444:4444 svelte_app
 ````
 
 ---

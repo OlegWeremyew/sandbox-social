@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 import bodyParser from "body-parser";
 import env from "dotenv";
 import cors from "cors";
+import chalk from 'chalk';
 
 type Params = unknown
 type ResBody = unknown
@@ -26,13 +27,22 @@ app.get("/", (req: Request<Params, ResBody, ReqBody, ReqQuery, Locals>, res: Res
   res.status(200)
 
   res.send({
-    id: 1,
-    name: 1,
+    id: 221,
+    name: 11,
   })
   return
 })
 
 app.listen(PORT, ()=>{
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-  console.log('server start on por1t - %d', PORT)
+  // console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+  // console.log('server start on port - %d', PORT)
+  console.log(
+      chalk.blueBright('🔧 Environment:'),
+      chalk.bold.yellow(process.env.NODE_ENV || 'not set')
+  );
+
+  console.log(
+      chalk.greenBright('🚀 Server started on'),
+      chalk.bold.cyan(`http://localhost:${PORT}`)
+  );
 })

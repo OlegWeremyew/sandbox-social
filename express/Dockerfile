@@ -1,6 +1,6 @@
-FROM node:20-alpine AS build
+FROM node:20-alpine AS dev
 
-RUN npm install -g yarn@1.22
+RUN corepack enable && corepack prepare yarn@1.22 --activate
 
 WORKDIR /app
 
@@ -10,6 +10,7 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 
+
 EXPOSE 5555
 
-CMD ["sh", "-c", "VITE_DEV_SERVER_HOST=0.0.0.0 yarn run start:dev"]
+CMD ["yarn", "dev"]

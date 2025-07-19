@@ -18,12 +18,14 @@
     }
   ],
   "scripts": {
-    "start:dev": "vite --mode development  --no-open --host  0.0.0.0",
-    "start:stage": "vite --mode development",
-    "start:prod": "vite --mode production",
-    "build:dev": "tsc -b && vite build --mode development",
-    "build:stage": "tsc -b && vite build --mode staging",
-    "build:prod": "tsc -b && vite build --mode production",
+    "dev":   "vite --mode development",
+    "start": "vite preview",
+    "build": "tsc -b && vite build",
+
+    "build:dev":   "vite build --mode development",
+    "build:stage": "vite build --mode staging",
+    "build:prod":  "vite build --mode production",
+
     "preview": "vite preview",
     "clean": "rm -rf node_modules && yarn cache clean",
     "reset": "rm -rf node_modules && rm yarn.lock && yarn cache clean",

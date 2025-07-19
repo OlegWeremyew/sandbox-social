@@ -1,0 +1,16 @@
+# version: "3.8"
+
+services:
+  vue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: vue_dev
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true

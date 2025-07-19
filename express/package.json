@@ -1,8 +1,9 @@
 {
   "name": "social-sandbox-express",
+  "type": "module",
   "private": true,
   "version": "0.0.1",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "author": "Oleg Veremyev",
   "contributors": [
     {
@@ -24,6 +25,7 @@
     "start": "node dist/index.js",
     "start:dev": "NODE_ENV=development nodemon -L dist/index.js",
     "start:prod": "NODE_ENV=production nodemon -L dist/index.js",
+    "dev": "concurrently \"yarn watcher\" \"yarn start:dev\"",
     "build:dev": "tsc -b && yarn build --mode development",
     "build:stage": "tsc -b && yarn build --mode staging",
     "build:prod": "tsc -b && yarn build --mode production",
@@ -34,6 +36,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
+    "chalk": "^5.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -53,6 +56,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.13.5",
     "@types/uuid": "^10.0.0",
+    "concurrently": "^9.2.0",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
@@ -64,5 +68,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/OlegWeremyew/sandbox-social/tree/production/express"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
