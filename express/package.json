@@ -26,9 +26,12 @@
     "start:dev": "NODE_ENV=development nodemon -L dist/index.js",
     "start:prod": "NODE_ENV=production nodemon -L dist/index.js",
     "dev": "concurrently \"yarn watcher\" \"yarn start:dev\"",
-    "build:dev": "tsc -b && yarn build --mode development",
-    "build:stage": "tsc -b && yarn build --mode staging",
-    "build:prod": "tsc -b && yarn build --mode production",
+
+    "build": "tsc",
+    "build:dev": "NODE_ENV=development tsc",
+    "build:stage": "NODE_ENV=staging tsc",
+    "build:prod": "NODE_ENV=production tsc",
+
     "clean": "rm -rf node_modules && yarn cache clean",
     "reset": "rm -rf node_modules && rm yarn.lock && yarn cache clean",
     "reset_and_install": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn"

@@ -1,0 +1,55 @@
+{
+  "name": "pixijs-oop",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "author": "Oleg Veremyev",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "vite --mode development",
+    "start": "vite preview",
+    "build": "tsc -b && vite build",
+    "build:dev": "vite build --mode development",
+    "build:stage": "vite build --mode staging",
+    "build:prod": "vite build --mode production",
+    "preview": "vite preview",
+    "eslint:fix": "eslint \"./**/*.ts\" --fix",
+    "prettier": "npx prettier --write .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^7.1.7",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "dependencies": {
+    "@pixi/sound": "4.4.1",
+    "pixi.js": "^8.13.2"
+  },
+  "contributors": [
+    {
+      "name": "Oleg Veremyev",
+      "email": "olegweremey1994@mail.ru"
+    }
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint",
+      "bash -c 'tsc --noEmit'"
+    ]
+  }
+}

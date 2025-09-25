@@ -1,5 +1,15 @@
+Dockerfile
 node_modules
+dist
+build
 .git
+.gitignore
+.dockerignore
 .env
 .env*
-Dockerfile
+*.log
+.idea
+.vscode
+.eslint*
+.prettier*
+.eslintignore

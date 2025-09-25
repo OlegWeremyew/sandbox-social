@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "./dist",
     "rootDir": "src",
     "sourceMap": true,
-    "module": "ES2022",        // или "ESNext"
+    "module": "ESNext",        // или "ESNext"
     "target": "ES2022",
     "esModuleInterop": true,
-    "strict": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "composite": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

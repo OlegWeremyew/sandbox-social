@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# If rebase is in progress, exit
+if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then
+    exit 0
+fi
+
+# If merge is in progress, exit
+if git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1; then
+    exit 0
+fi
+
+# Get the name of the current branch
+BRANCH_NAME=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# If we cannot get the branch name, exit without changes
+if [ -z "$BRANCH_NAME" ]; then
+    exit 0
+fi
+
+# The file with the commit message (Git passes it as the first argument)
+commit_msg_file=$1
+
+# Read the current commit message
+commit_msg=$(cat "$commit_msg_file")
+
+# Check if the tag [branch-name] already exists in the beginning of the message
+if echo "$commit_msg" | grep -q '^\[[^]]\+\]'; then
+    exit 0  # Exit if the tag already exists
+fi
+
+# Add [branch-name] to the beginning of the commit
+new_commit_msg="[$BRANCH_NAME] $commit_msg"
+
+# Rewrite the commit message
+echo "$new_commit_msg" > "$commit_msg_file"
+
+exit 0

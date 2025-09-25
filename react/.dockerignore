@@ -1,16 +1,15 @@
-# dev and build
+Dockerfile
 node_modules
+dist
+build
 .git
 .gitignore
 .dockerignore
-dist
-build
 .env
+.env*
 *.log
 .idea
 .vscode
-
-# dev tools
-.prettierrc
-.eslintrc.json
+.eslint*
+.prettier*
 .eslintignore
